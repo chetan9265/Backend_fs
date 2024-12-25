@@ -9,7 +9,7 @@ const dotenv=require("dotenv");
 const cookieParser = require("cookie-parser");
 app.use(express.static("./Uploads"))
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173","https://client-nswwdiop5-chetan9265s-projects.vercel.app/"],
     credentials:true
 }));
 app.use(cookieParser())
