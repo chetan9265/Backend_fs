@@ -48,8 +48,9 @@ const Signin=async(req,res)=>{
               })  
               return res.cookie('token',Token,{
                httpOnly:true,
-               maxAge:7*24*60*60*1000
-               
+               maxAge:7*24*60*60*1000,
+                 sameSite: 'None'
+   
               }).status(200).json({ message: "User logged in successfully" ,...rest})
               
               
