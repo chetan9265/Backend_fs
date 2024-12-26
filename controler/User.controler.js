@@ -46,7 +46,13 @@ const Signin=async(req,res)=>{
                 const Token=jwt.sign({ UserID:rest} ,process.env.Privatekey,{
                  expiresIn: '7d',
               })  
-              return res.cookie('token',Token).status(200).json({ message: "User logged in successfully" ,...rest})
+              return res.cookie('token',Token,{
+               httpOnly:true,
+               maxAge:7*24*60*60*1000
+               
+              }).status(200).json({ message: "User logged in successfully" ,...rest})
+              
+              
            }
            res.status(400).json({ message: "Password does not match" })
         });
